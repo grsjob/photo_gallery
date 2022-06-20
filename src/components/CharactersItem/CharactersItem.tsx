@@ -5,11 +5,15 @@ import {
   StyledCharacterItem,
 } from "./charactersItemStyles";
 
-const CharactersItem = () => {
+interface CharactersItemProps {
+  src: string;
+}
+
+const CharactersItem = ({ src }: CharactersItemProps) => {
   return (
     <>
       <StyledCharacterItem>
-        <StyledCharacterImage />
+        <StyledCharacterImage src={src} />
         <StyledCharacterDescription></StyledCharacterDescription>
       </StyledCharacterItem>
     </>
