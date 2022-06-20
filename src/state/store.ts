@@ -1,8 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import characters from "./slices/characters";
+import characters from "./slices/charactersSlice";
+import app from "./slices/appSlice";
 
 export const store = configureStore({
-  reducer: { characters },
+  reducer: { app, characters },
 });
 
 export type State = ReturnType<typeof store.getState>;

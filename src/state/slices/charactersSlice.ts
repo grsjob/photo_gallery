@@ -1,11 +1,11 @@
 import { ICharacters } from "../../types/characters";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-interface Characters {
+interface CharactersSlice {
   characters: ICharacters[];
 }
 
-const initialState: Characters = {
+const initialState: CharactersSlice = {
   characters: [],
 };
 
