@@ -6,7 +6,9 @@ axios.defaults.baseURL = settings.baseApiUrl;
 
 export default class DataService {
   static async fetchData(page: number, limit: number): Promise<IPhotos[]> {
-    const { data } = await axios.get<IPhotos[]>(`?page=${page}&limit=${limit}`);
+    const { data } = await axios.get<IPhotos[]>(
+      `v2/list?page=${page}&limit=${limit}`,
+    );
     return data;
   }
 }

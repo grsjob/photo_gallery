@@ -19,7 +19,7 @@ export default App;
 async function loadApp() {
   try {
     store.dispatch(loadingStart());
-    const photosList = await DataService.fetchData(2, 30);
+    const photosList = await DataService.fetchData(2, 12);
     store.dispatch(addPhotosList(photosList));
     store.dispatch(loadingEnd());
   } catch (e) {

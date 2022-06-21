@@ -10,6 +10,7 @@ const photosList = () => {
       {photosList.map((photo) => (
         <CharactersItem
           key={photo.id}
+          id={photo.id}
           author={photo.author}
           src={photo.download_url}
         />
