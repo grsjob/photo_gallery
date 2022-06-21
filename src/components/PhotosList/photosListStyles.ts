@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledCharactersList = styled.ul`
+export const StyledPhotosList = styled.ul`
   list-style: none;
   margin: 0;
   padding: 0;

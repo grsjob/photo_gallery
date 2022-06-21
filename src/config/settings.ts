@@ -1,3 +1,3 @@
 export default {
-  baseApiUrl: `https://breakingbadapi.com/api`,
+  baseApiUrl: `https://picsum.photos/v2/list`,
 };
