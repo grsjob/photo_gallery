@@ -12,6 +12,7 @@ const slice = createSlice({
   name: "app",
   initialState,
   reducers: {
+    initializeApp: () => initialState,
     loadingStart: (state) => {
       state.loading = true;
     },

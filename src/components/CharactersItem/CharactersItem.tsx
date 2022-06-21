@@ -7,14 +7,15 @@ import {
 
 interface CharactersItemProps {
   src: string;
+  name: string;
 }
 
-const CharactersItem = ({ src }: CharactersItemProps) => {
+const CharactersItem = ({ src, name }: CharactersItemProps) => {
   return (
     <>
       <StyledCharacterItem>
-        <StyledCharacterImage src={src} />
-        <StyledCharacterDescription></StyledCharacterDescription>
+        <StyledCharacterImage src={src} alt={name} />
+        <StyledCharacterDescription>{name}</StyledCharacterDescription>
       </StyledCharacterItem>
     </>
   );

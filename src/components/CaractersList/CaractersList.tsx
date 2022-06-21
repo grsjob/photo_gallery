@@ -1,11 +1,19 @@
 import React from "react";
 import { StyledCharactersList } from "./charactersListStyles";
 import CharactersItem from "../CharactersItem/CharactersItem";
+import { useStore } from "../../state/storeHooks";
 
 const CaractersList = () => {
+  const { characters } = useStore(({ characters }) => characters);
   return (
     <StyledCharactersList>
-      <CharactersItem src="https://vignette.wikia.nocookie.net/breakingbad/images/9/95/JesseS5.jpg/revision/latest?cb=20120620012441" />
+      {characters.map((character) => (
+        <CharactersItem
+          key={character.char_id}
+          name={character.name}
+          src={character.img}
+        />
+      ))}
     </StyledCharactersList>
   );
 };
