@@ -47,6 +47,7 @@ export const StyledButtonGroup = styled.div`
 
 export const StyledLikesButton = styled.button`
   border-radius: 5px;
+  cursor: pointer;
 
   ${(props) => {
     if (props.isLikedPhoto) {
@@ -65,4 +66,8 @@ export const StyledLikesButton = styled.button`
   }}
 `;
 
-export const StyledDeleteButton = styled.button``;
+export const StyledDeleteButton = styled.button`
+  background-color: inherit;
+  cursor: pointer;
+  border: none;
+`;

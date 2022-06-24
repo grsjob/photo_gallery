@@ -1,6 +1,7 @@
 import React from "react";
 import "../../assets/scss/App.scss";
 import PhotosList from "../PhotosList/PhotosList";
+import Header from "../Header/Header";
 import { useStoreAfterInitialization } from "../../state/storeHooks";
 import DataService from "../../services/DataService";
 import { store } from "../../state/store";
@@ -18,7 +19,14 @@ const App = () => {
   const antIcon = <LoadingOutlined style={{ fontSize: 38 }} spin />;
   return (
     <div className="app">
-      {loading ? <Spin indicator={antIcon} tip="Loading..." /> : <PhotosList />}
+      {loading ? (
+        <Spin indicator={antIcon} tip="Loading..." />
+      ) : (
+        <>
+          <Header />
+          <PhotosList />
+        </>
+      )}
     </div>
   );
 };

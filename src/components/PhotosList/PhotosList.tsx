@@ -24,7 +24,6 @@ const photosList = () => {
       <Switch
         checkedChildren="remove sorting by likes"
         unCheckedChildren="select liked photos"
-        aria-lable="Switch for likes filter"
         onChange={() => setFilterForLikesActive(!isFilterForLikesActive)}
       />
       <StyledPhotosList>

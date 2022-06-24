@@ -1,11 +1,8 @@
-import React, {
-  ButtonHTMLAttributes,
-  DetailedHTMLProps,
-  useState,
-} from "react";
+import React, { useState } from "react";
 import {
   StyledAthorTitle,
   StyledButtonGroup,
+  StyledDeleteButton,
   StyledLikesButton,
   StyledPhotoDescription,
   StyledPhotosItem,
@@ -13,7 +10,7 @@ import {
 import LazyImg from "../LazyImg/LazyImg";
 import { removePhoto, toggleForLike } from "../../state/slices/photosListSlice";
 import { store } from "../../state/store";
-import { HeartOutlined, HeartFilled } from "@ant-design/icons";
+import { DeleteOutlined, HeartFilled } from "@ant-design/icons";
 
 interface CharactersItemProps {
   src: string;
@@ -41,9 +38,9 @@ const PhotosItem = ({ src, author, id }: CharactersItemProps) => {
               {getLikeIcon(isLikedPhoto)}
               &nbsp;Like
             </StyledLikesButton>
-            <button onClick={() => store.dispatch(removePhoto(id))}>
-              Удалить
-            </button>
+            <StyledDeleteButton onClick={() => store.dispatch(removePhoto(id))}>
+              <DeleteOutlined style={{ fontSize: "20px", color: "red" }} />
+            </StyledDeleteButton>
           </StyledButtonGroup>
         </StyledPhotoDescription>
       </StyledPhotosItem>

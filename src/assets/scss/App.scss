@@ -2,10 +2,19 @@ html, body, #root, .app {
   min-height: 100vh;
 }
 
+#root, body {
+  background-color: #3b3b3b;
+
+}
+
 .app{
   display: flex;
+  background-color: inherit;
+
   flex-direction: column;
-  background-color: #3b3b3b;
-  justify-content: center;
   align-items: center;
+}
+
+.app-title{
+
 }
