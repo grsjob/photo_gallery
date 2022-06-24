@@ -8,6 +8,7 @@ import {
   setPageNumbers,
 } from "../../state/slices/paginationSlice";
 import { Button } from "antd";
+import { StyledPaginationList } from "./paginationStyles";
 
 const Pagination = () => {
   const { currentPhotosList } = useStore(({ photosList }) => photosList);
@@ -48,7 +49,7 @@ const Pagination = () => {
   ]);
   return (
     <nav>
-      <ul>
+      <StyledPaginationList>
         {pagesNumbers.map((number) =>
           number === currentPage ? (
             <li key={number}>
@@ -67,7 +68,7 @@ const Pagination = () => {
             </li>
           ),
         )}
-      </ul>
+      </StyledPaginationList>
     </nav>
   );
 };
