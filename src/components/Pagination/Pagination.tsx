@@ -90,4 +90,7 @@ function setPhotosSlice(
     store.dispatch(setCurrentPhotosAfterPagination([]));
     store.dispatch(setCurrentPage(pagesNumbers.length));
   }
+  if (photos.length === 0) {
+    store.dispatch(setCurrentPage(1));
+  }
 }
