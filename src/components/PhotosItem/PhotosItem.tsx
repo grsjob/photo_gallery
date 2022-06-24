@@ -1,6 +1,12 @@
 import React from "react";
-import { StyledPhotoDescription, StyledPhotosItem } from "./photosItemStyles";
+import {
+  StyledAthorTitle,
+  StyledPhotoDescription,
+  StyledPhotosItem,
+} from "./photosItemStyles";
 import LazyImg from "../LazyImg/LazyImg";
+import { removePhoto, toggleForLike } from "../../state/slices/photosListSlice";
+import { store } from "../../state/store";
 
 interface CharactersItemProps {
   src: string;
@@ -13,7 +19,15 @@ const PhotosItem = ({ src, author, id }: CharactersItemProps) => {
     <>
       <StyledPhotosItem>
         <LazyImg src={src} author={author} id={id} />
-        <StyledPhotoDescription>{author}</StyledPhotoDescription>
+        <StyledPhotoDescription>
+          <StyledAthorTitle>ِАвтор фото - {author}</StyledAthorTitle>
+          <button onClick={() => store.dispatch(removePhoto(id))}>
+            Удалить
+          </button>
+          <button onClick={() => store.dispatch(toggleForLike(id))}>
+            Like
+          </button>
+        </StyledPhotoDescription>
       </StyledPhotosItem>
     </>
   );

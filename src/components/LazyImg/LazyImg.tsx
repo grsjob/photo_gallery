@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
-import { StyledPhoto, StyeldPhotoBlur } from "./lazyImgStyles";
+import React, { useState } from "react";
+import { StyledPhoto } from "./lazyImgStyles";
 
 interface LazyImgProps {
   src: string;
@@ -8,14 +8,14 @@ interface LazyImgProps {
 }
 
 const LazyImg = ({ src, author, id }: LazyImgProps) => {
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   return (
     <StyledPhoto
-      src={loading ? `https://picsum.photos/id/${id}/200/300` : src}
+      src={isLoading ? `https://picsum.photos/id/${id}/200/300` : src}
       alt={`Фотография от автора ${author}`}
       onLoad={() => {
-        setLoading(false);
+        setIsLoading(false);
       }}
     />
   );

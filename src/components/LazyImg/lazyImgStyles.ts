@@ -5,5 +5,4 @@ export const StyledPhoto = styled.img`
   height: 300px;
   object-fit: cover;
   object-position: center;
-  border: none;
 `;

@@ -5,4 +5,5 @@ export interface IPhotos {
   height: number;
   url: string;
   download_url: string;
+  like?: boolean;
 }

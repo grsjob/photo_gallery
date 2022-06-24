@@ -5,5 +5,7 @@ body {
   background-color: #3b3b3b;
 }
 .app{
-  max-width: 1700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
