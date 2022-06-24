@@ -1,5 +1,6 @@
 {
-  "name": "bb_characters",
+  "name": "PhotoList",
+  "homepage": "https://grsjob.github.io/photo_gallery/",
   "version": "0.1.0",
   "description": "",
   "author": "Galtsev Roman",
@@ -15,7 +16,9 @@
     "start": "npm run start-dev",
     "start-dev": "webpack serve --config=configs/webpack/dev.js",
     "start-prod": "npm run build && node express.js",
-    "test": "jest --coverage --watchAll --config=configs/jest.json"
+    "test": "jest --coverage --watchAll --config=configs/jest.json",
+    "predeploy": "npm run clean-dist && webpack --config=configs/webpack/prod.js",
+    "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
     "@babel/core": "^7.18.5",
@@ -62,6 +65,7 @@
     "@reduxjs/toolkit": "^1.8.2",
     "antd": "^4.21.3",
     "axios": "^0.27.2",
+    "gh-pages": "^4.0.0",
     "styled-components": "^5.3.5"
   }
 }
