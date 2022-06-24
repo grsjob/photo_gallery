@@ -11,16 +11,16 @@ import LazyImg from "../LazyImg/LazyImg";
 import { removePhoto, toggleForLike } from "../../state/slices/photosListSlice";
 import { store } from "../../state/store";
 import { DeleteOutlined, HeartFilled } from "@ant-design/icons";
+import { IPhotos } from "../../types/photosList";
 
 interface CharactersItemProps {
   src: string;
   author: string;
   id: string;
+  arrPhotos: IPhotos[];
 }
 
-const PhotosItem = ({ src, author, id }: CharactersItemProps) => {
-  const [isLikedPhoto, setIsLikedPhoto] = useState(false);
-
+const PhotosItem = ({ src, author, id, arrPhotos }: CharactersItemProps) => {
   return (
     <>
       <StyledPhotosItem>
@@ -29,13 +29,12 @@ const PhotosItem = ({ src, author, id }: CharactersItemProps) => {
           <StyledAthorTitle>ِАвтор фото - {author}</StyledAthorTitle>
           <StyledButtonGroup>
             <StyledLikesButton
-              isLikedPhoto={isLikedPhoto}
+              isLikedPhoto={getStatusCurrentPhoto(id, arrPhotos)}
               onClick={() => {
                 store.dispatch(toggleForLike(id));
-                setIsLikedPhoto(!isLikedPhoto);
               }}
             >
-              {getLikeIcon(isLikedPhoto)}
+              {getLikeIcon(getStatusCurrentPhoto(id, arrPhotos))}
               &nbsp;Like
             </StyledLikesButton>
             <StyledDeleteButton onClick={() => store.dispatch(removePhoto(id))}>
@@ -56,4 +55,12 @@ function getLikeIcon(isLikedPhoto) {
   } else {
     return <HeartFilled style={{ color: "#5CB85C" }} />;
   }
+}
+
+function getStatusCurrentPhoto(id: string, arrPhotos: IPhotos[]) {
+  const currentPhoto = arrPhotos.find((photo) => photo.id === id);
+  if (currentPhoto.like) {
+    return currentPhoto.like;
+  }
+  return false;
 }

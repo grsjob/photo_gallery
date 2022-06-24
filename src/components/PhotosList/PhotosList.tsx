@@ -30,12 +30,13 @@ const photosList = () => {
         onChange={() => setFilterForLikesActive(!isFilterForLikesActive)}
       />
       <StyledPhotosList>
-        {currentPhotosAfterPagination.map((photo) => (
+        {currentPhotosAfterPagination.map((photo, _, arrPhotos) => (
           <CharactersItem
             key={photo.id}
             id={photo.id}
             author={photo.author}
             src={photo.download_url}
+            arrPhotos={arrPhotos}
           />
         ))}
       </StyledPhotosList>
