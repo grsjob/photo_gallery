@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const StyledPhotoDescription = styled.div`
   background-color: #fff;
@@ -36,4 +36,33 @@ export const StyledPhotosItem = styled.li`
 export const StyledAthorTitle = styled.h2`
   text-align: center;
   margin: 0;
+  min-height: 70px;
 `;
+
+export const StyledButtonGroup = styled.div`
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+`;
+
+export const StyledLikesButton = styled.button`
+  border-radius: 5px;
+
+  ${(props) => {
+    if (props.isLikedPhoto) {
+      return css`
+        background: #5cb85c;
+        color: #fff;
+        border-color: #fff;
+      `;
+    } else {
+      return css`
+        background: #fff;
+        color: #5cb85c;
+        border-color: #5cb85c;
+      `;
+    }
+  }}
+`;
+
+export const StyledDeleteButton = styled.button``;

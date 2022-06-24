@@ -20,22 +20,24 @@ const photosList = () => {
   }, [photosList, currentPhotosList, photosWithLike, isFilterForLikesActive]);
 
   return (
-    <StyledPhotosList>
+    <>
       <Switch
         checkedChildren="remove sorting by likes"
         unCheckedChildren="select liked photos"
         aria-lable="Switch for likes filter"
         onChange={() => setFilterForLikesActive(!isFilterForLikesActive)}
       />
-      {currentPhotosList.map((photo) => (
-        <CharactersItem
-          key={photo.id}
-          id={photo.id}
-          author={photo.author}
-          src={photo.download_url}
-        />
-      ))}
-    </StyledPhotosList>
+      <StyledPhotosList>
+        {currentPhotosList.map((photo) => (
+          <CharactersItem
+            key={photo.id}
+            id={photo.id}
+            author={photo.author}
+            src={photo.download_url}
+          />
+        ))}
+      </StyledPhotosList>
+    </>
   );
 };
 

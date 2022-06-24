@@ -1,11 +1,11 @@
-html, body, #root {
+html, body, #root, .app {
   min-height: 100vh;
 }
-body {
-  background-color: #3b3b3b;
-}
+
 .app{
   display: flex;
+  flex-direction: column;
+  background-color: #3b3b3b;
   justify-content: center;
   align-items: center;
 }
