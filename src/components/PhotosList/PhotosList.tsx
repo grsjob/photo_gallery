@@ -10,6 +10,9 @@ const photosList = () => {
   const { currentPhotosList, photosList, photosWithLike } = useStore(
     ({ photosList }) => photosList,
   );
+  const { currentPhotosAfterPagination } = useStore(
+    ({ pagination }) => pagination,
+  );
   const [isFilterForLikesActive, setFilterForLikesActive] = useState(false);
   useEffect(() => {
     if (isFilterForLikesActive) {
@@ -27,7 +30,7 @@ const photosList = () => {
         onChange={() => setFilterForLikesActive(!isFilterForLikesActive)}
       />
       <StyledPhotosList>
-        {currentPhotosList.map((photo) => (
+        {currentPhotosAfterPagination.map((photo) => (
           <CharactersItem
             key={photo.id}
             id={photo.id}

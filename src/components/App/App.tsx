@@ -13,6 +13,7 @@ import {
 import { LoadingOutlined } from "@ant-design/icons";
 import { Spin } from "antd";
 import "antd/dist/antd.css";
+import Pagination from "../Pagination/Pagination";
 
 const App = () => {
   const { loading } = useStoreAfterInitialization(({ app }) => app, loadApp);
@@ -25,6 +26,7 @@ const App = () => {
         <>
           <Header />
           <PhotosList />
+          <Pagination />
         </>
       )}
     </div>
